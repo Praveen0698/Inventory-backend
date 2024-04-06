@@ -12,7 +12,7 @@ exports.messageCreate = async (req, res) => {
     .create({
       body: `Thanks for shopping!!
       Here is your bill: ${billLink}`,
-      from: "+17868411057",
+      from: process.env.SEKNUM,
       to: `+91${mobileNo}`,
     })
     .then(() => {
@@ -38,7 +38,7 @@ exports.messageCreate = async (req, res) => {
 //       excelData.map((number, index) => {
 //         return client.messages.create({
 //           body: `Thanks for Voting!!`,
-//           from: "+19382223956",
+//           from: "process.env.SEKNUM",
 //           to: `+91${number.MOBILE}`,
 //         });
 //       })
