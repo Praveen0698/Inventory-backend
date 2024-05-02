@@ -1,7 +1,6 @@
 const { expenseModel, cashModel } = require("./schema");
 
 exports.createExpense = async (req, res) => {
-  console.log(req);
   try {
     const newItem = new expenseModel(req.body);
     await newItem.save();
@@ -21,7 +20,6 @@ exports.getExpense = async (req, res) => {
 };
 
 exports.createCash = async (req, res) => {
-  console.log(req);
   try {
     const newItem = new cashModel(req.body);
     await newItem.save();
@@ -32,6 +30,7 @@ exports.createCash = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
 exports.getCash = async (req, res) => {
   await cashModel
     .find({})

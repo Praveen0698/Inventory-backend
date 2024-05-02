@@ -50,6 +50,21 @@ const {
 
 const { messageCreate } = require("./messagin/Messaging");
 
+const {
+  getApi,
+  genrateIRN,
+  cancelIRN,
+  getIRN,
+  saveIRN,
+  getIRNdata,
+} = require("./gstEInvoiceModule/dataController");
+
+app.post("/e-invoice", getApi);
+app.post("/generate-invoice", genrateIRN);
+app.post("/cancel-irn", cancelIRN);
+app.post("/get-irn", getIRN);
+app.post("/save-irn", saveIRN);
+app.get("/all-irn-generated", getIRNdata);
 app.post("/sendBill", messageCreate);
 app.post("/sales", createSales);
 app.get("/sales", getSales);
