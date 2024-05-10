@@ -57,10 +57,12 @@ const {
   getIRN,
   saveIRN,
   getIRNdata,
+  genrateEway,
 } = require("./gstEInvoiceModule/dataController");
 
 app.post("/e-invoice", getApi);
 app.post("/generate-invoice", genrateIRN);
+app.post("/generate-eway-bill", genrateEway);
 app.post("/cancel-irn", cancelIRN);
 app.post("/get-irn", getIRN);
 app.post("/save-irn", saveIRN);

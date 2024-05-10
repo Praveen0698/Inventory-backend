@@ -50,6 +50,29 @@ exports.genrateIRN = async (req, res) => {
     });
 };
 
+exports.genrateEway = async (req, res) => {
+  const url = "https://staging.fynamics.co.in/api/eway/enhanced/generate";
+  const data = req.body.formData;
+
+  const headers = {
+    Authorization: `Bearer ${process.env.FYN_TOKEN}`,
+
+    gstin: req.body.auth.gst,
+    AuthToken: req.body.auth.authToken,
+    user_name: req.body.auth.Username,
+    sek: req.body.auth.Sek,
+  };
+
+  axios
+    .post(url, data, { headers })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      res.send(error);
+    });
+};
+
 exports.cancelIRN = async (req, res) => {
   const data = {
     Irn: req.body.irnNumber,
